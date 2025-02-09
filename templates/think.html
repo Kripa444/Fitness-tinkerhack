@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='think.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='image/Technologies-Development-Team.png') }}'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+    <!-- Navigation Bar -->
+    <div class="header">
+        <div class="nav-left">
+            <button class="home-btn">Home</button>
+        </div>
+        <div class="nav-right">
+            <button class="sign-out-btn">Sign Out</button>
+            <!-- Use url_for to link logo image in the static folder -->
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="slogan">
+            <p>Your Health, Our Pride</p>
+        </div>
+
+        <!-- Icons for Mental & Physical Health -->
+        <section class="sections">
+            <div class="section mental-health">
+                <img src="https://img.icons8.com/?size=100&id=gkUeB6Nb16Jw&format=png&color=000000">
+                <!-- Anchor tag for Mental Health -->
+                <a href="{{ url_for('mentalhealth') }}"><p>Mental Health</p></a>
+            </div>
+            <div class="section physical-health">
+                <img src="https://img.icons8.com/?size=100&id=13S0cKqLOHQN&format=png&color=000000">
+                <!-- Use Flask URL for Physical Health -->
+                <a href="{{ url_for('physical') }}"><p>Physical Health</p></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link to JS file -->
+    <script src="{{ url_for('static', filename='js/think.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        body {
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220815/pngtree-floral-bg-decoration-romantic-graphic-photo-image_1074644.jpg'); /* Replace with your image URL */
+            background-size: cover;  /* Ensures the image covers the whole page */
+            background-repeat: no-repeat; /* Prevents repeating */
+            background-position: center; /* Centers the image */
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 36px;
+            color: #2C3E50;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card img {
+            width: 50%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #34495E;
+        }
+
+        .product-card p {
+            font-size: 18px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .product-card .details-icon {
+            font-size: 24px;
+            color: #2C3E50;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>RECOMMENDATION PAGE</h1>
+
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71hRKjdMWZL.AC_UL600_SR600,600.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>₹800</p>
+            <i class="fas fa-info-circle details-icon" onclick="showDetails('Product 1')"></i>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://www.garagegymreviews.com/wp-content/uploads/Ritual-protein-adults-over-50.png" alt="Product 2">           
+            <h3>Product 2</h3>
+            <p>₹500</p>
+            <i class="fas fa-info-circle details-icon" onclick="showDetails('Product 2')"></i>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61BlGDetzAL.AC_UF894,1000_QL80.jpg" alt="Product 3">          
+            <h3>Product 3</h3>
+            <p>₹399</p>
+            <i class="fas fa-info-circle details-icon" onclick="showDetails('Product 3')"></i>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsUjp_i7e4GCiUmKq8MMPADqGtpRCxPMAWqqutQxISG_9_36zY7XP8Pn8no-y1Ri25alw&usqp=CAU" alt="Product 4">
+            <h3>Product 4</h3>
+            <p>₹700</p>
+            <i class="fas fa-info-circle details-icon" onclick="showDetails('Product 4')"></i>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(productName) {
+            alert("More details about " + productName);
+        }
+    </script>
+
+</body>
+</html>

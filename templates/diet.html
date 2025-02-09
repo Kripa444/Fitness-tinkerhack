@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #292933;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d9d8d8;
+        }
+
+        .icon-container {
+            margin-left:15%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        /* Adjust for smaller screens */
+        @media (max-width: 768px) {
+            .icon-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .icon {
+
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon a {
+            text-decoration: none; /* This removes the underline from the links */
+            color: black; /* This ensures the link text is black */
+        }
+
+        .icon img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .icon p {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Hover effect */
+        .icon:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>DIET RECOMMENDATIONS</h1>
+    
+    <!-- First Icon Container -->
+    <div class="icon-container">
+        <div class="icon">
+            <a href="keto.html">
+                <img src="https://img.icons8.com/?size=100&id=RWPWqFtDeG0i&format=png&color=000000" alt="Keto Diets">
+                <p>KETO DIETS</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="paleo.html">
+                <img src="https://img.icons8.com/?size=100&id=FAVhJdQNEMqX&format=png&color=000000" alt="Paleo Diets">
+                <p>PALEO DIETS</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="zone.html">
+                <img src="https://img.icons8.com/?size=100&id=38Z9ZP7pUyFO&format=png&color=000000" alt="Zone Diets">
+                <p>ZONE DIETS</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Second Icon Container -->
+    <div class="icon-container">
+        <div class="icon">
+            <a href="glutenfree.html">
+                <img src="https://img.icons8.com/?size=100&id=WzZIVIBPs6k9&format=png&color=000000" alt="Gluten Free Diets">
+                <p>GLUTEN FREE DIETS</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="atkins.html">
+                <img src="https://img.icons8.com/?size=100&id=0IPCb9XLeIzS&format=png&color=000000" alt="Atkins Diet">
+                <p>ATKINS DIET</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

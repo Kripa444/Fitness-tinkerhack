@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHYSICAL HEALTH - Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for('static', filename='image/back.png') }}');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #e0e4e9;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .form-container {
+            margin-top: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        .continue-button {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-button:hover {
+            background-color: #2ecc71;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        #payment-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        /* Payment Completed Message Styling */
+        #completed-section {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>PHYSICAL HEALTH - Payment</h1>
+
+        <div class="form-container">
+            <h2>Enter your UPI ID to proceed with payment:</h2>
+            <input type="text" id="upiID" placeholder="Enter your UPI ID (e.g., username@upi)">
+            <button class="continue-button" onclick="submitPaymentDetails()">Submit</button>
+            <div id="error-message" class="error-message"></div>
+        </div>
+
+        <div id="payment-section">
+            <h3>Redirecting to Google Pay...</h3>
+        </div>
+
+        <!-- Payment Completed Message Section -->
+        <div id="completed-section">
+            <h3>Payment Completed! Redirecting to Workouts...</h3>
+        </div>
+    </div>
+
+    <script>
+        function submitPaymentDetails() {
+    const upiID = document.getElementById('upiID').value;
+    const errorMessage = document.getElementById('error-message');
+    const paymentSection = document.getElementById('payment-section');
+    const completedSection = document.getElementById('completed-section');
+
+    if (upiID) {
+        errorMessage.textContent = ''; // Clear any previous error message
+        paymentSection.style.display = 'block'; // Show redirect message
+
+        // Simulate the payment processing (no need for actual Google Pay redirect here)
+        setTimeout(() => {
+            // Hide the payment message and show the payment completed message
+            paymentSection.style.display = 'none';
+            completedSection.style.display = 'block'; // Show payment completed message
+
+            // After 3 seconds, send the payment details to Flask backend
+            setTimeout(() => {
+                const paymentData = {
+                    upi_id: upiID,
+                    status: 'Completed',  // Payment status
+                };
+
+                // Explicitly provide the correct URL if Flask is on port 5000
+                fetch('http://127.0.0.1:5000/submit-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(paymentData),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to save payment details');
+                    }
+                })
+                .then(data => {
+                    console.log(data.message);  // Log success message
+                    if (data.message === 'Payment details saved successfully!') {
+                        // Redirect only if the payment is successfully stored in the backend
+                        setTimeout(() => {
+                            window.location.href = "{{ url_for('workouts') }}"; // Redirect to workout page after successful payment
+                        }, 2000);  // Wait 2 seconds before redirect
+                    } else {
+                        alert('Error: ' + data.error); // Show error message if saving fails
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to update payment status');
+                });
+            }, 3000); // 3 seconds delay before sending data to backend
+        }, 3000); // Simulate payment delay of 3 seconds
+    } else {
+        errorMessage.textContent = 'Please enter a valid UPI ID.';
+        paymentSection.style.display = 'none'; // Hide payment section
+    }
+}
+
+    </script>
+
+</body>
+</html>

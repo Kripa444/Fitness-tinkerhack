@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Plan Details - Your Health, Your Investments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #34495E;
+        }
+
+        h2 {
+            color: #27ae60;
+            font-size: 28px;
+            margin-top: 20px;
+        }
+        h3{
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #34495E;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .list {
+            list-style-type: square;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .note {
+            background-color: #f9f9f9;
+            border-left: 5px solid #27ae60;
+            padding: 15px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .continue-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-button:hover {
+            background-color: #2ecc71;
+        }
+
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #34495E;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>POLICY PLAN</h1>
+
+        <div class="section">
+            <h2>Overview of Our Paid Plan</h2>
+            <li>Your money will be safely deposited in your personalized account to one page.</li>
+            <li>If you are successfully consistent in your workouts,a certain amout will be deducted,wherein the amount will be used to buy health related essentials which will be customized under your preferences.</li>
+              <li>If you are comfortable with our suggestions,the payment and delivery process would be prompted ASAP.</li>
+             <li>Below is a detailed breakdown of the features included with the Paid Plan:</li>
+        </div>
+
+        <div class="section">
+            <h2>Included Features</h2>
+            <ul class="list">
+                <li>Priority customer support with faster response times.</li>
+                <li>Access to exclusive content and personalized recommendations.</li>
+                <li>Unlimited access to all premium features and services.</li>
+                <li>Special discounts on all upcoming services and events.</li>
+                <li>Free one-time health consultation with our experts.</li>
+                <li>Access to private webinars and workshops on health and wellness.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Pricing and Payment Terms</h2>
+            <p>The Paid Plan is available for a monthly or annual subscription.</p>
+            <ul class="list">
+                <li><span class="highlight">Monthly Subscription:</span> $19.99 per month</li>
+                <li><span class="highlight">Annual Subscription:</span> $199.99 per year (Save 15%)</li>
+            </ul>
+            <p>All payments are processed securely and will be automatically renewed at the end of each billing cycle unless canceled before the renewal date.</p>
+        </div>
+
+        <div class="section">
+            <h2>Cancellation Policy</h2>
+            <p>You may cancel your subscription at any time. Once canceled, you will retain access to the Paid Plan until the end of your current billing cycle. Afterward, your subscription will not renew, and you will be downgraded to the free plan.</p>
+            <p>To cancel your subscription, please visit your account settings and follow the cancellation instructions. You will receive a confirmation email upon successful cancellation.</p>
+        </div>
+
+        <div class="section">
+            <h2>Refund Policy</h2>
+            <p>We want you to be completely satisfied with your subscription. If you are not satisfied with your Paid Plan, you may request a refund within the first 7 days of your purchase. Refunds will only be issued if no usage has been made of the Paid Plan's services.</p>
+            <div class="note">
+                <p><strong>Note:</strong> Refund requests made after the 7-day period will not be considered. In such cases, your subscription will continue until the end of the current billing cycle.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Terms and Conditions</h2>
+            <p>By subscribing to our Paid Plan, you agree to the following terms and conditions:</p>
+            <ul class="list">
+                <li>You are responsible for maintaining the confidentiality of your account and password.</li>
+                <li>You must be at least 18 years of age to purchase a subscription.</li>
+                <li>We reserve the right to modify or cancel the Paid Plan at any time, with prior notice.</li>
+                <li>We are not responsible for any issues arising from third-party payment providers.</li>
+            </ul>
+        </div>
+        <div>
+            <a href="{{ url_for('pay') }}">
+            <button class="continue-button">CONTINUE</button>
+        </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Your Health, Your Investments | All Rights Reserved</p>
+    </div>
+
+</body>
+</html>

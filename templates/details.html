@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ADD8E6;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            width: 50%;
+            max-width: 600px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        input, select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 12px;
+            width: 100%;
+            background: #2980b9;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1f618d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your Details</h2>
+        <form id="userForm">
+            <label>Name:</label>
+            <input type="text" id="name" required>
+
+            <label>Gender:</label>
+            <select id="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Favorite Flavor:</label>
+            <input type="text" id="favorite_flavor" required>
+
+            <label>
+                <input type="checkbox" id="sugar"> Sugar?
+            </label>
+
+            <label>
+                <input type="checkbox" id="pressure"> High Blood Pressure?
+            </label>
+
+            <label>
+                <input type="checkbox" id="cholesterol"> High Cholesterol?
+            </label>
+            <div class="button">
+                <a href="{{ url_for('recommendations') }}">
+                <button>Submit</button>
+            </a>
+            </div>
+            
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let userData = {
+                name: document.getElementById("name").value,
+                gender: document.getElementById("gender").value,
+                favorite_flavor: document.getElementById("favorite_flavor").value,
+                sugar: document.getElementById("sugar").checked ? "Yes" : "No",
+                pressure: document.getElementById("pressure").checked ? "Yes" : "No",
+                cholesterol: document.getElementById("cholesterol").checked ? "Yes" : "No"
+            };
+
+            fetch("/api/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                    window.location.href = "/static/recommendations.html"; // Redirects to static file
+                } else {
+                    alert("Error: " + data.error);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>

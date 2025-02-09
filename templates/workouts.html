@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workouts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: gray; /* Light background color */
+            color: #333;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 50px;
+            color: #2c3e50;
+        }
+
+        .icon-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            margin-left:8%;
+            padding: 0 20px;
+        }
+
+        .icon {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+        }
+
+        .icon img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .icon p {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Remove underline from links (anchor tags) */
+        .icon a {
+            text-decoration: none; /* No underline */
+            color: inherit; /* Inherit color from parent */
+        }
+
+        /* Hover effect */
+        .icon:hover {
+            transform: translateY(-5px); /* Lift the icon slightly */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px; /* Smaller heading on mobile */
+            }
+
+            .icon-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller grid for mobile */
+            }
+
+            .icon {
+                width: 130px; /* Smaller icons for mobile */
+                height: 130px;
+            }
+
+            .icon img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .icon p {
+                font-size: 12px; /* Smaller text for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>WORKOUTS</h1>
+
+    <!-- Icon Containers -->
+    <div class="icon-container">
+        <div class="icon">
+            <a href="{{ url_for('arm') }}">
+                <img src="https://img.icons8.com/?size=100&id=995LuXjZNvlN&format=png&color=000000" alt="Arms">
+                <p>ARMS</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="{{ url_for('leg') }}">
+                <img src="https://img.icons8.com/?size=100&id=oQbPRjWnUvqs&format=png&color=000000" alt="Leg">
+                <p>LEG</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="{{ url_for('chest') }}">
+                <img src="https://img.icons8.com/?size=100&id=CJjkispN0ZiG&format=png&color=000000" alt="Chest">
+                <p>CHEST</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="{{ url_for('posture') }}">
+                <img src="https://img.icons8.com/?size=100&id=TqYBZUXGgiWv&format=png&color=000000" alt="Posture">
+                <p>POSTURE</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="{{ url_for('all') }}">
+                <img src="https://img.icons8.com/?size=100&id=yw2uhpaA9RBr&format=png&color=000000" alt="All Workouts">
+                <p>ALL OF THE ABOVE</p>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

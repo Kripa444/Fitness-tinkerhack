@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Health, Your Investments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for('static', filename='image/back.png') }}');
+            background-size: cover; /* Ensures the image covers the entire screen */
+            background-position: center center; /* Centers the image */
+            background-repeat: no-repeat;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.05);
+        }
+
+        .icon h2 {
+            font-size: 18px;
+            color: #34495E;
+            margin: 10px 0;
+        }
+
+        .free-plan {
+            opacity: 0.6;
+        }
+
+        .dropdown {
+            display: none;
+            text-align: left;
+            background-color: #fff;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        .dropdown p {
+            font-size: 16px;
+            color: #34495E;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown p::before {
+            content: "•";
+            margin-right: 10px;
+            color: #27ae60;
+        }
+
+        .continue-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .continue-button:hover {
+            background-color: #2ecc71;
+        }
+
+        .paid-plan:focus-within .dropdown {
+            display: block;
+        }
+
+        .free-plan:focus-within .dropdown {
+            display: block; /* Only show the continue button */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>YOUR HEALTH, YOUR INVESTMENTS</h1>
+
+        <div class="icon-container">
+            <!-- Free Plan Icon (Empty Dropdown with Continue Button) -->
+            <div class="icon free-plan" tabindex="0">
+                <h2>FREE PLAN</h2>
+                <div class="dropdown">
+                    <a href="{{ url_for('workouts') }}">
+                        <button class="continue-button">CONTINUE</button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Paid Plan Icon with Dropdown -->
+            <div class="icon paid-plan" tabindex="0">
+                <h2>PAID PLAN</h2>
+                <p>Why this is the most preferred plan among our subscribers!</p>
+                <div class="dropdown">
+                    <p> > Budget friendly!</p>
+                    <p> > 1-time free service!</p>
+                    <p> > We deliver your products without any delay!</p>
+                    <a href="{{ url_for('info') }}"> <!-- Link to GPay page -->
+                        <button class="continue-button">CONTINUE</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

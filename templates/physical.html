@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Health</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url("{{ url_for('static', filename='image/sec.jpg') }}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            width: 30%;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: auto;
+        }
+        .icon-container {
+            background-color: white;
+            border-radius: 5px;
+            width: 30%;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        .icon {
+            display: block;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            text-align: center;
+        }
+        .icon img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>PHYSICAL HEALTH</h1>
+    </div>
+
+    <div class="icon-container">
+        <a href="{{ url_for('paid') }}" class="icon">
+            <img src="https://img.icons8.com/?size=100&id=EvjFucCOnw3K&format=png&color=000000">
+            <p>Workouts</p>
+        </a>
+    </div>
+
+    <div class="icon-container">
+        <a href="{{ url_for('diet') }}" class="icon">
+            <img src="https://img.icons8.com/?size=100&id=QOoFHcFvTrrh&format=png&color=000000">
+            <p>Diets</p>
+        </a>
+    </div>
+
+</body>
+</html>
